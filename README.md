@@ -85,7 +85,7 @@ We're not checking boxes. Here's what we care about:
 | | What we're looking at |
 |---|---|
 | **Product thinking** | Did you make smart decisions about what to build and how it should work? Does the UX make sense? |
-| **Craft** | Does it look and feel intentional? The details matter - design, responsiveness, polish. |
+| **Craft** | Does it look and feel intentional? The details matter - design, layout quality, polish. |
 | **Technical quality** | Is the code clean, well-structured, and easy to follow? |
 | **Judgment** | Did you scope the work well for the time budget and make sensible tradeoffs? |
 | **Workflow** | Can you walk us through how you built it and why? (assessed in the walkthrough) |

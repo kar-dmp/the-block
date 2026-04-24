@@ -14,7 +14,7 @@ We're hiring for a team that builds fast, thinks independently, and takes owners
 
 ## The Challenge
 
-Build the **buyer side of a vehicle auction platform as a web application**. We've included a dataset of 200 vehicles in [`data/vehicles.json`](data/vehicles.json), each listed by a selling dealership.
+Build the **buyer side of a vehicle auction platform as a web or mobile application**. We've included a dataset of 200 vehicles in [`data/vehicles.json`](data/vehicles.json), each listed by a selling dealership.
 
 A buyer should be able to browse inventory, inspect vehicle details, and place bids. That's the core experience. How you structure the product and how far you take it is up to you.
 
@@ -23,7 +23,7 @@ A buyer should be able to browse inventory, inspect vehicle details, and place b
 - Browse and search the vehicle inventory
 - Vehicle detail views with specs, condition, damage notes, selling dealership, and photos
 - A bidding experience where a buyer can place bids on vehicles
-- A responsive web experience that works well on desktop and mobile browsers
+- A usable experience that works well on the platform you choose
 - Clear instructions in your README for how to run the project locally
 
 ## Assumptions You Can Make
@@ -31,7 +31,7 @@ A buyer should be able to browse inventory, inspect vehicle details, and place b
 - This is a prototype, not a production launch.
 - Target roughly **4-8 hours** of work. If you spend more, that's your call, but we do not expect a fully built marketplace.
 - Use any framework, language, or stack.
-- If you want to align with our current web stack, a React + Vite setup is a good fit. Tailwind is also a reasonable choice, but none of these are required.
+- If you want stack examples that fit this challenge, React + Vite is a good web option, and SwiftUI for iOS or Compose for Android are reasonable native mobile examples. None of these are required.
 - You may use AI tools and coding assistants, and their use is encouraged. Be ready to explain how you used them, what decisions you made, and what parts of the implementation you would refine.
 - Authentication and user accounts are **not required**.
 - A frontend-only implementation is completely acceptable.

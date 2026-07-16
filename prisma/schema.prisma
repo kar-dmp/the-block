@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Vehicle {
+  id                 String   @id
+  vin                String   @unique
+  year               Int
+  make               String
+  model              String
+  trim               String
+  bodyStyle          String
+  exteriorColor      String
+  interiorColor      String
+  engine             String
+  transmission       String
+  drivetrain         String
+  odometerKm         Int
+  fuelType           String
+  conditionGrade     Float
+  conditionReport    String
+  damageNotes        String
+  titleStatus        String
+  province           String
+  city               String
+  auctionStart       DateTime
+  auctionEnd         DateTime @default(now())
+  originalAuctionStart DateTime
+  startingBid        Int
+  reservePrice       Int?
+  buyNowPrice        Int?
+  images             String
+  sellingDealership  String
+  sellerVerified     Boolean  @default(true)
+  lot                String   @unique
+  currentBid         Int?
+  currentPrice       Int      @default(0)
+  bidCount           Int      @default(0)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  bids               Bid[]
+
+  @@index([make])
+  @@index([bodyStyle])
+  @@index([province])
+  @@index([auctionStart])
+  @@index([currentPrice])
+}
+
+model Bid {
+  id        String   @id @default(cuid())
+  amount    Int
+  createdAt DateTime @default(now())
+  vehicleId String
+  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+
+  @@index([vehicleId, createdAt])
+}

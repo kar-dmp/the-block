@@ -1,0 +1,27 @@
+@use 'mixins' as m;
+
+// Global resets only. Everything else is either a design-system class
+// (.btn / .table / .tag / .input …) or a *.module.scss file.
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-accent-700);
+  text-decoration: none;
+
+  &:hover { color: var(--color-accent); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+// Utility used by empty states and note pages
+.prose {
+  max-width: 62ch;
+  text-wrap: pretty;
+}

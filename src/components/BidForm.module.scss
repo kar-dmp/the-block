@@ -1,0 +1,31 @@
+@use '../styles/mixins' as m;
+
+.quick {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+
+  button {
+    flex: 1;
+    justify-content: flex-start;
+    @include m.num;
+  }
+}
+
+.error { font-size: 12px; color: var(--color-accent-700); margin-top: 6px; }
+
+.inputLg {
+  height: 42px;
+  font-size: 17px;
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+}
+
+.buttonLg { height: 44px; }
+
+.confirmArmed {
+  background: var(--color-accent-700);
+  outline: 2px solid var(--color-accent-800);
+  outline-offset: 2px;
+}
+.confirmArmed:hover { background: var(--color-accent-800); }

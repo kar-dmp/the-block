@@ -1,0 +1,325 @@
+@use '../styles/mixins' as m;
+
+.screen { padding-bottom: 48px; }
+
+.back {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+}
+
+.ids {
+  font-size: 12px;
+  color: var(--color-neutral-700);
+  @include m.num;
+}
+
+.titleBlock {
+  border-top: 2px solid var(--color-divider);
+  padding-top: 18px;
+
+  h1 {
+    font-size: clamp(26px, 4.6vw, 42px);
+    margin: 0 0 6px;
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.sub { font-size: 14px; color: var(--color-neutral-700); }
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+  margin-top: 22px;
+
+  @media (min-width: m.$bp-lg) {
+    grid-template-columns: minmax(0, 1fr) 366px;
+  }
+}
+
+.hero {
+  width: 100%;
+  height: min(56vh, 440px);
+  background: var(--color-neutral-300);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+
+  img { width: 100%; height: 100%; object-fit: cover; display: block; }
+}
+
+.thumbs {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+  overflow-x: auto;
+}
+
+.thumb {
+  width: 96px;
+  aspect-ratio: 4 / 3;
+  flex: none;
+  background: var(--color-neutral-300);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  outline-offset: -3px;
+  padding: 0;
+  overflow: hidden;
+
+  img { width: 100%; height: 100%; object-fit: cover; display: block; }
+}
+
+.thumbOn { outline: 2px solid var(--color-accent); }
+
+.photoNote { font-size: 11px; color: var(--color-neutral-600); margin-top: 6px; }
+
+.sectionHead { margin: 30px 0 0; }
+
+.condition {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  align-items: flex-start;
+}
+
+.gradeBox { flex: none; width: 132px; }
+
+.gradeNum {
+  @include m.heading(38px);
+  line-height: 1;
+  @include m.num;
+}
+
+.gradeBand {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+.gradeTrack {
+  height: 6px;
+  background: var(--color-neutral-300);
+  margin-top: 10px;
+}
+
+.gradeFill { height: 6px; background: var(--color-accent); }
+
+.gradeScale { font-size: 10px; color: var(--color-neutral-600); margin-top: 5px; }
+
+.report {
+  flex: 1;
+  min-width: 240px;
+  margin: 0;
+  font-size: 14px;
+  text-wrap: pretty;
+}
+
+.damage { margin-top: var(--space-5, 20px); }
+
+.damageHead { @include m.label; margin-bottom: var(--space-2); }
+
+.damageRow {
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+  padding: 9px 0;
+  border-top: 1px solid var(--color-divider);
+  font-size: 14px;
+
+  .tag { flex: none; min-width: 88px; }
+}
+
+.warn {
+  margin-top: 14px;
+  padding: var(--space-3) 14px;
+  background: var(--color-accent-100);
+  border-left: 3px solid var(--color-accent);
+
+  strong {
+    display: block;
+    @include m.heading(13px);
+    color: var(--color-accent-800);
+  }
+
+  span { font-size: 13px; color: var(--color-accent-900); }
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+}
+
+.spec {
+  padding: 11px 14px 11px 0;
+  border-bottom: 1px solid var(--color-divider);
+
+  dt { @include m.label; letter-spacing: 0.11em; }
+  dd { margin: 0; font-size: 14px; @include m.num; }
+}
+
+.usageNote { font-size: 12px; color: var(--color-neutral-700); margin-top: 10px; }
+
+.dealer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5, 20px);
+  align-items: flex-start;
+}
+
+.dealerName { @include m.heading(19px); }
+
+.dealerPlace { font-size: 13px; color: var(--color-neutral-700); }
+
+.figure {
+  @include m.heading(19px);
+  @include m.num;
+}
+
+.figureLabel { @include m.label; letter-spacing: 0.11em; }
+
+.comps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 14px;
+}
+
+.compFigure {
+  @include m.heading(24px);
+  @include m.num;
+}
+
+.aside {
+  @media (min-width: m.$bp-lg) {
+    position: sticky;
+    top: 74px;
+  }
+}
+
+.bidPanel {
+  border: 2px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: var(--space-4);
+}
+
+.bidHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.bidLabel { @include m.label; }
+
+.bidCount { font-size: 11px; color: var(--color-neutral-700); }
+
+.bidAmount {
+  @include m.heading(38px);
+  line-height: 1.05;
+  @include m.num;
+}
+
+.split {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: 14px;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-divider);
+}
+
+.timer {
+  @include m.heading(17px);
+  @include m.num;
+}
+
+.runs { font-size: 13px; }
+
+.block {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-divider);
+}
+
+.error { font-size: 12px; color: var(--color-accent-700); margin-top: 6px; }
+
+.note { font-size: 13px; color: var(--color-neutral-700); margin-top: var(--space-2); }
+.noteAccent { color: var(--color-accent); font-weight: 600; }
+
+.buyNow {
+  border-color: var(--color-accent);
+  color: var(--color-accent-700);
+}
+
+.closed {
+  strong { display: block; @include m.heading(15px); }
+  span { font-size: 13px; color: var(--color-neutral-700); }
+}
+
+.pair {
+  display: flex;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-divider);
+
+  button { flex: 1; justify-content: flex-start; }
+}
+
+.history {
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-3);
+  overflow: hidden;
+}
+
+.historyHead {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--color-divider);
+  @include m.label;
+}
+
+.historyRow {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.who { @include m.heading(13px); }
+
+.mine { color: var(--color-accent-700); }
+
+.when { font-size: 11px; color: var(--color-neutral-600); }
+
+.amount { font-size: 14px; @include m.num; }
+
+.historyEmpty { padding: var(--space-3) 14px; font-size: 13px; color: var(--color-neutral-700); }
+
+.dialogRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dialogTotal {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--space-2);
+  border-top: 2px solid var(--color-divider);
+  margin-top: var(--space-2);
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+}

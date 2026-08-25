@@ -1,0 +1,61 @@
+@use '../styles/mixins' as m;
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background: color-mix(in srgb, var(--color-neutral-900) 45%, transparent);
+}
+
+.panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: min(380px, 100%);
+  background: var(--color-bg);
+  border-left: 2px solid var(--color-divider);
+  overflow-y: auto;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px var(--space-4);
+  border-bottom: 2px solid var(--color-divider);
+  position: sticky;
+  top: 0;
+  background: var(--color-bg);
+}
+
+.title { @include m.heading(16px); }
+
+.item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--color-divider);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  color: var(--color-text);
+
+  &:hover { background: var(--color-neutral-100); }
+}
+
+.kind {
+  @include m.label;
+  letter-spacing: 0.11em;
+}
+
+.outbid { color: var(--color-accent); }
+
+.itemTitle { @include m.heading(14px); }
+
+.text { font-size: 12px; color: var(--color-neutral-700); }
+
+.when { font-size: 11px; color: var(--color-neutral-600); margin-top: 2px; }
+
+.empty { padding: 22px var(--space-4); font-size: 13px; color: var(--color-neutral-700); }

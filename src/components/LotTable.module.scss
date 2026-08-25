@@ -1,0 +1,70 @@
+@use '../styles/mixins' as m;
+
+.scroll {
+  overflow-x: auto;
+  margin-top: var(--space-1);
+}
+
+.table {
+  min-width: 860px;
+}
+
+.row { cursor: pointer; }
+
+.lot {
+  @include m.num;
+  font-size: 12px;
+  color: var(--color-neutral-700);
+}
+
+.title { @include m.heading(14px); }
+
+.sub { font-size: 11px; color: var(--color-neutral-700); }
+
+.right {
+  text-align: right;
+  @include m.num;
+}
+
+.grade {
+  @include m.heading(15px);
+  @include m.num;
+}
+
+.gradeWord {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-neutral-700);
+}
+
+.place { font-size: 13px; }
+
+.countdown {
+  font-size: 12px;
+  @include m.num;
+}
+
+.status {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bid {
+  @include m.heading(15px);
+  @include m.num;
+}
+
+.bidMeta {
+  font-size: 10px;
+  color: var(--color-neutral-700);
+  white-space: nowrap;
+}
+
+.cta {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}

@@ -1,0 +1,40 @@
+// Shared SCSS helpers. Every value comes from the Modernist token sheet
+// (src/styles/modernist.css) — nothing is hard-coded here except breakpoints.
+
+$bp-sm: 640px;
+$bp-md: 900px;   // header nav -> bottom tab bar, cards -> table
+$bp-lg: 1000px;  // detail page gains its sticky bid column
+$max-width: 1560px;
+
+@mixin label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-neutral-700);
+}
+
+@mixin nav-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@mixin heading($size: 15px) {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: $size;
+}
+
+@mixin num {
+  font-variant-numeric: tabular-nums;
+}
+
+@mixin rule($weight: 1px) {
+  border-bottom: $weight solid var(--color-divider);
+}
+
+@mixin card-grid($min: 256px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+  gap: var(--space-3);
+}

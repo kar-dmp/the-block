@@ -1,0 +1,124 @@
+@use '../styles/mixins' as m;
+
+.grid { @include m.card-grid(256px); }
+
+.card {
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--color-neutral-300);
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.lot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--color-bg);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 3px 7px;
+  @include m.num;
+}
+
+.body {
+  padding: 11px var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.title {
+  @include m.heading(15px);
+  line-height: 1.15;
+  cursor: pointer;
+}
+
+.tag {
+  flex: none;
+  white-space: nowrap;
+}
+
+.sub { font-size: 11px; color: var(--color-neutral-700); }
+
+.hr {
+  height: 1px;
+  background: var(--color-divider);
+  margin: 2px 0;
+}
+
+.figures {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.figureLabel { @include m.label; letter-spacing: 0.1em; }
+
+.bid {
+  @include m.heading(19px);
+  @include m.num;
+}
+
+.status {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.countdown {
+  font-size: 12px;
+  @include m.num;
+  text-align: right;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+  margin-top: var(--space-1);
+
+  .primary { flex: 1; justify-content: flex-start; }
+}
+
+.statusCta {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: none;
+  cursor: pointer;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) calc(var(--space-3) * 1.2);
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.statusCta:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }

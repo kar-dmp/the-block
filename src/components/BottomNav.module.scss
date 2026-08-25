@@ -1,0 +1,33 @@
+@use '../styles/mixins' as m;
+
+.nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  background: var(--color-bg);
+  border-top: 2px solid var(--color-divider);
+  white-space: nowrap;
+
+  @media (min-width: m.$bp-md) { display: none; }
+}
+
+.tab {
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 2px;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+}
+
+.active { color: var(--color-accent); }

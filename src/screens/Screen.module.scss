@@ -1,0 +1,70 @@
+@use '../styles/mixins' as m;
+
+.screen { padding-bottom: 48px; }
+
+.head {
+  padding: 22px 0 14px;
+
+  h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    margin: 0 0 var(--space-1);
+  }
+}
+
+.ruled { border-bottom: 2px solid var(--color-divider); }
+
+.sub { font-size: 12px; color: var(--color-neutral-700); }
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 2px solid var(--color-divider);
+  border-bottom: 2px solid var(--color-divider);
+}
+
+.stat {
+  flex: 1;
+  min-width: 132px;
+  padding: 14px var(--space-4) 14px 0;
+
+  dt { @include m.label; }
+  dd {
+    margin: 0;
+    @include m.heading(26px);
+    @include m.num;
+  }
+}
+
+.alert { color: var(--color-accent); }
+
+.scroll {
+  overflow-x: auto;
+  margin-top: var(--space-2);
+}
+
+.table { min-width: 820px; }
+
+.row { cursor: pointer; }
+
+.lot {
+  font-size: 12px;
+  @include m.num;
+  color: var(--color-neutral-700);
+}
+
+.title { @include m.heading(14px); }
+
+.rowSub { font-size: 11px; color: var(--color-neutral-700); }
+
+.right { text-align: right; @include m.num; }
+
+.strong { @include m.heading(14px); text-align: right; @include m.num; }
+
+.small { font-size: 13px; @include m.num; }
+
+.empty {
+  padding: 56px 0;
+
+  h3 { margin: 0 0 6px; }
+  p { color: var(--color-neutral-700); max-width: 440px; }
+}

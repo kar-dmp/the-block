@@ -1,0 +1,34 @@
+@use '../styles/mixins' as m;
+
+.wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 60px;
+  z-index: 90;
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--space-4);
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: 11px var(--space-4);
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  border: 1px solid var(--color-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  max-width: 520px;
+  font-size: 13px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  flex: none;
+}

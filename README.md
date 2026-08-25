@@ -1,146 +1,186 @@
-<p align="center">
-  <img src="docs/the_block_repo.png" alt="The Block challenge hero image" width="960" />
-</p>
+# OPENLANE — Buyer auction platform (Prototype)
 
-# The Block
+## How to Run
 
-### A coding challenge from OPENLANE
-
----
-
-OPENLANE powers one of the world's largest digital marketplaces for used vehicles. Every day, thousands of vehicles move through our platform - inspected, listed, auctioned, and sold. Your job is to interpret what we do and bring a working prototype to life.
-
-We're hiring for a team that builds fast, thinks independently, and takes ownership. This challenge is part of that process.
-
-## The Challenge
-
-Build the **buyer side of a vehicle auction platform as a web or mobile application**. We've included a dataset of 200 vehicles in [`data/vehicles.json`](data/vehicles.json), each listed by a selling dealership.
-
-A buyer should be able to browse inventory, inspect vehicle details, and place bids. That's the core experience. How you structure the product and how far you take it is up to you.
-
-## Core Requirements
-
-- Browse and search the vehicle inventory
-- Vehicle detail views with specs, condition, damage notes, selling dealership, and photos
-- A bidding experience where a buyer can place bids on vehicles
-- A usable experience that works well on the platform you choose
-- Clear instructions in your README for how to run the project locally
-
-## Assumptions You Can Make
-
-- This is a prototype, not a production launch.
-- Please spend no more than 3-4 hours of work on this. If you spend more, that's your call, but we do not expect a fully built marketplace.
-- Use any framework, language, or stack.
-- If you want stack examples that fit this challenge, React + Vite is a good web option, and SwiftUI for iOS or Compose for Android are reasonable native mobile examples. None of these are required.
-- You may use AI tools and coding assistants, and their use is encouraged. Be ready to explain how you used them, what decisions you made, and what parts of the implementation you would refine.
-- Authentication and user accounts are **not required**.
-- A frontend-only implementation is completely acceptable.
-- You do **not** need to build seller workflows, checkout, payments, or dealer admin tooling.
-- Auction timestamps in the dataset are synthetic scheduling data. If you want to show countdowns or "live" states, it's fine to normalize them relative to "now" in your prototype.
-- Make reasonable product decisions, document your assumptions, and optimize for clarity over surface area.
-
-## Minimum Bar
-
-At a minimum, we want to see:
-
-- Inventory browsing and search
-- A clear vehicle detail experience
-- A bid flow with updated visible state
-- A usable experience on desktop and mobile
-- A repo we can clone and run by following your README
-
-## Stretch Ideas
-
-These are optional. Only do them if the basics are solid.
-
-- We care more about judgment than about any specific extra feature.
-- If you go beyond the basics, focus on improvements that make the buyer experience clearer, more useful, or more trustworthy.
-- That could show up in product decisions, UX details, implementation quality, or any other thoughtful extension that fits the timebox.
-
-## What to Submit
-
-1. **Fork this repo** to your own GitHub account
-2. Complete the challenge work in your fork
-3. Include a **README** in your repo with setup instructions and notable decisions
-4. When you're finished, share the link to your repo with your contact at **OPENLANE**
-
-We've included a [submission template](SUBMISSION.md) if you want a starting point.
-
-We should be able to clone your repo and have it running locally by following your README.
-
-## Timeline
-
-You have **5 days** from when you receive this challenge to submit it.
-
-This is not a speed run. We care more about your decisions and tradeoffs than the total number of features.
-
-## What Happens Next
-
-After you submit, we'll schedule a **45-60 minute walkthrough** where you'll screen-share and walk us through what you built. More details are in [`WALKTHROUGH.md`](WALKTHROUGH.md).
-
-## How We Evaluate
-
-We're not checking boxes. Here's what we care about:
-
-| | What we're looking at |
-|---|---|
-| **Product thinking** | Did you make smart decisions about what to build and how it should work? Does the UX make sense? |
-| **Craft** | Does it look and feel intentional? The details matter - design, layout quality, polish. |
-| **Technical quality** | Is the code clean, well-structured, and easy to follow? |
-| **Judgment** | Did you scope the work well for the time budget and make sensible tradeoffs? |
-| **Workflow** | Can you walk us through how you built it and why? (assessed in the walkthrough) |
-
-## The Data
-
-The vehicle dataset is at [`data/vehicles.json`](data/vehicles.json). Each vehicle includes:
-
-- Lot number, VIN, make, model, year, and trim
-- Specs (engine, transmission, drivetrain, fuel type, odometer)
-- Condition (grade, report, damage notes, title status)
-- Auction details (starting bid, reserve price, buy now price, auction start time)
-- Current bid and bid count (some vehicles already have active bids)
-- Location (city and province)
-- Selling dealership
-- Placeholder image URLs
-
-Here's what a single vehicle looks like:
-
-```json
-{
-  "id": "3cc3b89e-68b0-479e-af39-bca6251ea0b4",
-  "vin": "TRD7L1KS0HNB5X3K3",
-  "year": 2023,
-  "make": "Ford",
-  "model": "Bronco",
-  "trim": "Big Bend",
-  "body_style": "SUV",
-  "exterior_color": "Burgundy",
-  "interior_color": "Beige",
-  "engine": "2.7L EcoBoost V6",
-  "transmission": "automatic",
-  "drivetrain": "4WD",
-  "odometer_km": 47731,
-  "fuel_type": "gasoline",
-  "condition_grade": 3.8,
-  "condition_report": "Average condition. Has some visible wear on high-touch surfaces. Engine and transmission perform within normal parameters.",
-  "damage_notes": [
-    "Scratch on liftgate",
-    "Minor rust on wheel wells",
-    "Paint peeling on roof rack"
-  ],
-  "title_status": "clean",
-  "province": "Ontario",
-  "city": "Toronto",
-  "auction_start": "2026-04-05T14:00:00",
-  "starting_bid": 14500,
-  "reserve_price": 25000,
-  "buy_now_price": null,
-  "images": ["https://placehold.co/800x600?text=2023+Ford+Bronco+Photo+1", "..."],
-  "selling_dealership": "King City Auto",
-  "lot": "A-0043",
-  "current_bid": 22800,
-  "bid_count": 16
-}
+```bash
+cd openlane-buyer
+yarn install
+yarn dev                # http://localhost:5173
+yarn build               # typecheck, then static output in dist/
+yarn typecheck           # tsc --noEmit
+yarn test                # run the test suite once
+yarn test:coverage       # run with coverage report
 ```
 
-The data is synthetic but meant to feel realistic. Use it however you want. Should you need reasonable accommodation, please reach out to careers@openlane.com
+## Time Spent
+
+- Roughly 7 hours across two sessions:
+  - **2 hour** — used Claude Design to mock and visualize features and business flows
+  - **2 hours** — set up the repo, read through the UI design, and went through
+    the features to add necessary additions (e.g. two-stage bid confirmation,
+    filters persisted into URL parameters)
+  - **2 hours** — unit tests and manual testing to verify all features work
+    properly, fixing bugs found along the way
+  - **1 hour** — final review and documentation updates
+
+## Assumptions and Scope
+
+- **Included**:
+  - Full buyer flow: browse, filter/sort/search, lot detail, bidding with
+    proxy/max bids, watchlist, compare, saved searches, activity feed, Buy Now
+  - A same-browser multi-tab bidding simulation
+  - A Vitest suite with coverage thresholds
+- **Skipped**:
+  - Auth, checkout, transport, seller/admin tooling, arbitration
+  - Any real networked multiplayer bidding — see [Not implemented](#not-implemented)
+- **Simplified**:
+  - No backend — state lives in `localStorage`/`sessionStorage`, seeded from
+    one static `vehicles.json` (200 lots)
+  - Rival bidding is simulated across browser tabs rather than over a network
+    (see **Bidder identity is per-tab, not per-browser** under
+    [Notable Decisions](#notable-decisions))
+
+## Stack
+
+**Frontend:** React 18, TypeScript (strict), Vite, React Router, SCSS modules
+**Backend:** none — static SPA, no server or API routes
+**Database:** none — `localStorage`/`sessionStorage`, seeded from `public/data/vehicles.json`
+
+### Why not Next.js
+
+Nothing here needs a server: no authentication, no API routes, no SEO surface, no data
+fetching beyond one static JSON file, and all state is per-browser. Vite starts in under a
+second and `yarn build` produces a static bundle any host will serve. Next.js would add a
+framework, a server runtime, and a routing convention without changing a single screen. If this
+graduated to a real product — server-side inventory search, authenticated buyers, SSR for
+public lot pages — that is the point to reconsider.
+
+## What I Built
+
+A buyer-side wholesale vehicle auction prototype, all persisted client-side:
+
+- Browse/filter/search 200 seeded lots
+- View a lot detail page
+- Place proxy (max) bids with a two-stage confirm
+- Buy Now
+- Watch/compare lots
+- Save searches
+- Follow an activity feed
+- Product notes and assumptions (prototype only), with a button to reset all
+  prototype state
+- A same-browser multi-tab simulation lets one lot be bid on by "different"
+  bidders (one per tab) to exercise outbid/proxy-bid UI without a backend
+
+### Structure
+
+```text
+src/
+  main.tsx                  React root, router, provider, global CSS
+  App.tsx                   shell + route table
+  vite-env.d.ts             Vite/CSS-module ambient types
+  styles/
+    modernist.css          design-system tokens & component classes
+    _mixins.scss           SCSS mixins: labels, headings, tabular numerals, breakpoints
+    global.scss            resets, link colors
+  lib/
+    types.ts                shared domain types: Vehicle, BidRecord, Filters, AppContextValue, …
+    format.ts               money/km/countdown, bid increments, grade bands, damage classes, fees
+    lots.ts                 lot state, effective bid, filter/sort, row + history derivation
+    seed.ts                 first-load demo state (3 bids, 2 watched lots)
+  hooks/
+    useNow.ts               interval clock (lists 15s, detail 1s)
+  state/
+    AppContext.tsx           store: bids, watch, compare, feed, saved searches, purchases
+  components/
+    Header, BottomNav, Toast, ActivityDrawer, FilterPanel, LotTable, LotCard, Icon
+    BidForm                 shared quick-bid + confirm UI (detail page and quick-bid dialog)
+    QuickBidDialog           place a bid from an inventory card without leaving Browse
+  screens/
+    Browse, Detail, MyBids, Watchlist, Compare, Notes
+public/data/vehicles.json  200 lots, 15 makes, 7 provinces
+```
+
+## Notable Decisions
+
+**Two design-system layers, deliberately separated.** `styles/modernist.css` carries
+every color, font, spacing token, and shared component class (`.btn`/`.input`/`.table`/
+`.tag`/`.card`/`.dialog`/`.seg`); each `*.module.scss` only positions things and
+references `var(--color-*)`/`var(--space-*)`/`var(--font-*)`. Retuning a token (e.g.
+`--radius-sm/md/lg`) changes every consumer at once instead of chasing re-declared
+values across modules.
+
+**One context + reducer for all state** (`useApp()`), persisted to `localStorage`
+under `openlane-buyer-v2`: `bids`, `watch`, `compare`, `feed`, `saved`, `bought`.
+Filter state stays local to `Browse` until a search is explicitly saved — the store
+isn't a dumping ground for transient UI state.
+
+**Browse state lives in the URL.** Search text, sort, view (grid/table), and every
+filter field are serialized to query params and kept in sync via `useSearchParams`,
+each change replacing the current history entry rather than pushing a new one — so
+the inventory view is back/forward-able, refresh-safe, and shareable, without a
+Back-press per keystroke.
+
+**Bidder identity is per-tab, not per-browser.** Each tab gets its own short bidder
+id (`sessionStorage`); a `storage` event listener merges bids from other same-origin
+tabs live, and a max/proxy bid auto-re-bids when outbid by another tab. This makes
+outbid/proxy-bid UI exercisable without a backend, at the cost of being a same-browser
+simulation rather than real networked multiplayer.
+
+**Bid confirmation is two-stage, not modal**, for the common case: the button arms
+into `Confirm $X — can't be withdrawn` with a 10s countdown before submitting. Buy
+Now, a rarer and larger commitment, keeps a full modal instead.
+
+**Domain rules ported verbatim** from the original HTML prototype (all in `lib/`):
+timestamp normalization so the fixed dataset week straddles "now," lot state
+(`preview` → `live` → `ended`, plus `bought`), bid increment tiers, damage
+classification, odometer-per-year read, comparables (same make+model, median bid),
+and deterministic bid history generation (FNV-1a hash) from `bid_count`.
+
+## Testing
+
+Vitest + React Testing Library + jsdom. `lib/format.ts`, `lib/lots.ts`, and `lib/seed.ts`
+run under the plain `node` environment (`// @vitest-environment node`) since they're
+pure functions with no DOM; everything else runs under jsdom. Shared fixtures
+(`makeVehicle`, `makeCtx`, `HOUR`) live in `src/test/fixtures.ts`. Component/screen
+tests mock `useApp()` directly (cast through `AppContextValue` since most tests only
+stub the slice of the store their component reads); `AppContext.test.tsx` is the
+exception — it renders the real `AppProvider` to exercise hydration, persistence, and
+the reducer (including the cross-tab sync and concurrent-bid race fixes).
+
+```bash
+yarn test                # run once
+yarn test:watch          # watch mode
+yarn test:coverage       # run with a coverage report (text + html + lcov, in coverage/)
+```
+
+Coverage thresholds are set in `vite.config.ts` (`test.coverage.thresholds`) as a
+**regression floor**, not an aspirational target — they sit at or below what the
+suite already covers, so `test:coverage` fails on a drop, not on pre-existing gaps:
+
+| metric | threshold | current |
+| --- | --- | --- |
+| statements | 85% | ~88.6% |
+| branches | 75% | ~79.7% |
+| functions | 85% | ~89.8% |
+| lines | 90% | ~93% |
+
+`Browse.tsx` and `FilterPanel.tsx` are the weakest-covered files today (saved-search
+apply, pagination, and the individual filter controls aren't all exercised) — the
+numbers above have room before the thresholds would need raising.
+
+## What I'd Do With More Time
+
+- Raise coverage on `Browse.tsx` and `FilterPanel.tsx` (saved-search apply, pagination,
+  individual filter controls) rather than just holding the regression floor.
+- Replace the local/session-storage state with a real backend once there's a case for
+  server-side inventory search, authenticated buyers, or SSR on public lot pages —
+  see [Why not Next.js](#why-not-nextjs).
+- Real networked multiplayer bidding instead of the same-browser multi-tab simulation.
+- Auth, checkout, transport, and seller/admin tooling — currently entirely out of scope,
+  see [Not implemented](#not-implemented).
+
+## Not implemented
+
+No auth, checkout, transport, seller or admin tooling, arbitration. Rival bidding only exists as
+a same-browser, multi-tab simulation (see **Bidder identity and cross-tab bidding** above) — there
+is no networked multiplayer. Prototype state resets from the Notes screen.

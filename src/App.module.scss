@@ -1,0 +1,17 @@
+@use 'styles/mixins' as m;
+
+.shell {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  padding-bottom: 64px;
+
+  @media (min-width: m.$bp-md) { padding-bottom: 0; }
+}
+
+.main {
+  max-width: m.$max-width;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
